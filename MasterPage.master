@@ -1,0 +1,76 @@
+<%@ Master Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    protected void DataList_Topic_Load(object sender, EventArgs e)
+    {
+        TopicDB topic = new TopicDB();
+        DataList_Topic.DataSource = topic.getAll();
+        DataList_Topic.DataBind();
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Community </title>
+    
+    <link href="KendoUI/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="KendoUI/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <LINK rel="stylesheet" type="text/css" href="KendoUI/styles/kendo.bootstrap.min.css" />
+    
+    <script type="text/javascript" src="KendoUI/js/jquery.min.js"></script>
+    <script type="text/javascript" src="KendoUI/js/kendo.web.min.js"></script>
+
+    <meta charset="tis-620" />
+    
+    <style>
+        body { margin: 0; }
+    
+        #wrapper { width: 960px; margin: 0 auto; min-height: 600px; }
+        
+        #header { background: orange;  }
+        
+        #content { border-left: 1px solid #ddd; width: 750px; float: left; padding-left: 8px; margin-bottom: 20px;}
+        
+        #leftbar {  width: 200px; float: left;  }
+        
+        #footer { border-top: 1px solid #ddd; clear: both; padding-top: 20px; }
+    </style>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <div id="header">
+            <h2>คอมมิวนีตี้</h2>
+            <p>....</p>
+        </div>
+        
+        
+        <div id="leftbar">
+        
+        <a href="NewTopic.aspx">ตั้งกระทู้ใหม่</a><br><hr>
+        
+            <asp:DataList ID="DataList_Topic" runat="server" OnLoad="DataList_Topic_Load">
+                <ItemTemplate>
+                    
+                    <%--<asp:LinkButton PostBackUrl='~/topic.aspx?ID=<%# Eval("ID") %>' ID="LinkButton1" runat="server">#<%# Eval("ID") %> <%# Eval("Head") %></asp:LinkButton>--%>
+                    <a href="Topic.aspx?ID=<%# Eval("ID") %>">#<%# Eval("ID") %> <%# Eval("Head") %></a>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
+        
+        <div id="content">            
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+            </asp:contentplaceholder>
+        </div>
+        
+        <div id="footer">
+            Copyright &copy; <%= DateTime.Now.Year %>
+        </div>
+    </div>
+    </form>
+    
+</body>
+</html>
