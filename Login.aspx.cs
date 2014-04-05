@@ -13,7 +13,8 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["Firstname"] != null)
+            Response.Redirect("profile.aspx");
     }
     
     protected void BtnLogin_Click(object sender, EventArgs e)
@@ -23,7 +24,12 @@ public partial class Login : System.Web.UI.Page
 
         if (user != null)
         {
-            Response.Redirect("~Default.aspx");
+            Session["Firstname"]=user.Firstname;
+            Session["Picture"] = user.Picture;
+
+            Response.Redirect("~");
         }
+
+
     }
 }

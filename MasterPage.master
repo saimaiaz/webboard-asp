@@ -37,16 +37,11 @@
       format('svg');
     }
     
-        body { margin: 0; }
-    
-        #wrapper { width: 960px; margin: 0 auto; min-height: 600px; }
-        
-        #header {   }
-        
+        body { margin: 0; }    
+        #wrapper { width: 960px; margin: 0 auto; min-height: 600px; }        
+        #header {   }        
         #content { border-left: 1px solid #ddd; width: 750px; float: left; padding-left: 8px; margin-bottom: 20px;}
-        
-        #leftbar {  width: 200px; float: left;  }
-        
+        #leftbar {  width: 200px; float: left;  }        
         #footer { border-top: 1px solid #ddd; clear: both; padding-top: 20px; }
     </style>
     
@@ -64,42 +59,45 @@
   <li class=""> <%--active--%>
     <a href="./">Home <span class="icon-home"></span></a>
   </li>
-  <li><a href="#"> User </a></li>
+  <li><a href="login.aspx"> 
+  <%
+      if (Session["Firstname"] == null)
+      {
+          Response.Write("Login");
+      }
+      else
+          Response.Write(Session["Firstname"]);
+  %>
+  
+   </a></li>
 </ul>
 
+<div id="header">
+    <h2>คอมมิวนีตี้</h2>
+    <p>...</p>
+</div>
 
+<div id="leftbar">
 
-    
-    
-        <div id="header">
-            <h2>คอมมิวนีตี้</h2>
-            <p>....</p>
-        </div>
-        
-        
-        <div id="leftbar">
-        
-        <a href="NewTopic.aspx">ตั้งกระทู้ใหม่</a><br><hr>
-        
-            <asp:DataList ID="DataList_Topic" runat="server" OnLoad="DataList_Topic_Load">
-                <ItemTemplate>
-                    
-                    <%--<asp:LinkButton PostBackUrl='~/topic.aspx?ID=<%# Eval("ID") %>' ID="LinkButton1" runat="server">#<%# Eval("ID") %> <%# Eval("Head") %></asp:LinkButton>--%>
-                    <a href="Topic.aspx?ID=<%# Eval("ID") %>">#<%# Eval("ID") %> <%# Eval("Head") %></a>
-                </ItemTemplate>
-            </asp:DataList>
-        </div>
-        
-        <div id="content">            
-            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
-            </asp:contentplaceholder>
-        </div>
-        
-        <div id="footer">
-            Copyright &copy; <%= DateTime.Now.Year %>
-        </div>
+<a href="NewTopic.aspx">ตั้งกระทู้ใหม่</a><br><br>
+
+<asp:DataList ID="DataList_Topic" runat="server" CssClass="table" OnLoad="DataList_Topic_Load">
+    <ItemTemplate>                    
+        <a href="Topic.aspx?ID=<%# Eval("ID") %>">#<%# Eval("ID") %> <%# Eval("Head") %></a>
+    </ItemTemplate>
+</asp:DataList>
+</div>
+
+<div id="content">            
+<asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+</asp:contentplaceholder>
+</div>
+
+    <div id="footer">
+    Copyright &copy; <%= DateTime.Now.Year %>
     </div>
-    </form>
+</div>
+</form>
     
 </body>
 </html>

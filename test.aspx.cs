@@ -18,6 +18,6 @@ public partial class test : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Response.Write(TextBox1.Text);
+       // Response.Write(TextBox1.Text);
     }
 }

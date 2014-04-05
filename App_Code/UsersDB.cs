@@ -71,7 +71,9 @@ public class UsersDB
         DB db = new DB();
 
         string cmd = string.Format(@"
-        select count([user_name]) from users where [users].[user_name]='{0}' and [users].[user_pass]='{1}'
+        select count([user_name]) 
+        from users where [users].[user_name]='{0}' 
+        and [users].[user_pass]='{1}'
         ", name, pass);
 
         SqlCommand myCommand = new SqlCommand(cmd, db.myConnection);
@@ -86,8 +88,10 @@ public class UsersDB
         if (this.checkUserExist(name, pass) > 0)
         {
             string cmd = string.Format(@"
-        select count([user_name]) from users where [users].[user_name]='{0}' and [users].[user_pass]='{1}'
-        ", name, pass);
+            select *
+            from users where [users].[user_name]='{0}' 
+            and [users].[user_pass]='{1}' "
+            , name, pass);
 
             DB db = new DB();
             SqlCommand myCommand = new SqlCommand(cmd, db.myConnection);

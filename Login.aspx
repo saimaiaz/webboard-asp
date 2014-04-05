@@ -1,30 +1,35 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    &nbsp;
+    <br />
+    <br />
+    <table style="width: 437px">
+        <tr>
+            <td style="width: 70px; height: 43px">
+
+User
+            </td>
+            <td style="height: 43px">
+<asp:TextBox ID="username" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td style="width: 70px; height: 39px">
+Pass
+            </td>
+            <td style="height: 39px">
+<asp:TextBox ID="password" TextMode="password" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td style="width: 70px">
+            </td>
+            <td>
+<asp:Button ID="BtnLogin" runat="server" OnClick="BtnLogin_Click" Text="Button" /></td>
+        </tr>
+    </table>
 
 
-    <asp:Table ID="Table1" runat="server">
-        <asp:TableRow runat="server">
-            <asp:TableCell ColumnSpan="3" runat="server">
-                เข้าสู่ระบบ
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server">
-            <asp:TableCell runat="server">User</asp:TableCell>
-            <asp:TableCell runat="server"><asp:TextBox ID="username" runat="server"></asp:TextBox></asp:TableCell>
 
-        </asp:TableRow>
-        <asp:TableRow runat="server">
-            <asp:TableCell runat="server">Pass </asp:TableCell>
-            <asp:TableCell runat="server">
-                <asp:TextBox ID="password" TextMode="password" runat="server"></asp:TextBox></asp:TableCell>
 
-        </asp:TableRow>
-        <asp:TableRow ID="TableRow1" runat="server">
-            <asp:TableCell ID="TableCell1" ColumnSpan="3" runat="server">
-                <asp:Button ID="BtnLogin" runat="server" OnClick="BtnLogin_Click" Text="Button" />
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
     
 
 </asp:Content>
