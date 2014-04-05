@@ -23,7 +23,7 @@ Pass
             <td style="width: 70px">
             </td>
             <td>
-<asp:Button ID="BtnLogin" runat="server" OnClick="BtnLogin_Click" Text="Button" /></td>
+<asp:Button ID="BtnLogin" runat="server" CssClass="btn btn-default" OnClick="BtnLogin_Click" Text="Login now" /></td>
         </tr>
     </table>
 

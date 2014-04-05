@@ -18,6 +18,7 @@ public partial class topic : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            if (Request.QueryString["ID"] == null) return;
             int topic_id = int.Parse(Request.QueryString["ID"]);
 
             TopicDB topic = new TopicDB();
@@ -38,12 +39,25 @@ public partial class topic : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        // validate login
+        if (Session["Firstname"] ==null )
+        {
+            Response.Write(@"
+            <script> 
+            alert('Login before add comment.'); 
+          //  location = 'login.aspx'; 
+            </script>
+            ");
+            
+        }
+
         int topic_id = int.Parse(Request.QueryString["ID"]);
         CommentDB c = new CommentDB();
         c.addComment(topic_id, comment_text.Text, DateTime.Now.ToShortDateString(), 2);
         comment_text.Text = "";
         this.bindComment(topic_id);
     }
+
 
     private void bindComment(int id)
     {
@@ -53,4 +67,6 @@ public partial class topic : System.Web.UI.Page
         RepeaterComment.DataBind();
         
     }
+
+
 }
