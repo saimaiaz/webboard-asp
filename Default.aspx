@@ -2,11 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <h1>กระทู้ทั้งหมด</h1>
-    <asp:Repeater ID="Repeater1" runat="server">
+    
+    
+    <ul class="nav nav-list bs-docs-sidenav affix-top">
+      
+      <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
-            <p><a href="topic.aspx?ID=<%# Eval("ID") %>">#<%# Eval("ID") %> <%# Eval("Text") %></a></p>
+            
+            <li><a href="topic.aspx?ID=<%# Eval("ID") %>"><i class="icon-chevron-right"></i> <%# Eval("ID") %> <%# Eval("Text") %></a></li>
         </ItemTemplate>
-    </asp:Repeater>
+        </asp:Repeater>
+    </ul>
 
 </asp:Content>
 

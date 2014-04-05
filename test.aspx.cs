@@ -14,6 +14,10 @@ public partial class test : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write("asdf" + MD5.Create("asdf").Hash.LongLength);
+        Response.Write("asdf" );
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        Response.Write(TextBox1.Text);
     }
 }

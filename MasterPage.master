@@ -14,22 +14,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Community </title>
+    <meta charset="utf-8" />
     
-    <link href="KendoUI/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
-    <link href="KendoUI/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
-    <LINK rel="stylesheet" type="text/css" href="KendoUI/styles/kendo.bootstrap.min.css" />
+    <link href="bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap-3.1.1/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     
-    <script type="text/javascript" src="KendoUI/js/jquery.min.js"></script>
-    <script type="text/javascript" src="KendoUI/js/kendo.web.min.js"></script>
-
-    <meta charset="tis-620" />
+    <script type="text/javascript" src="bootstrap-3.1.1/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="bootstrap-3.1.1/js/bootstrap.min.js" ></script>
     
-    <style>
+    
+    <style type="text/css">
+    
+    @font-face {
+      font-family: 'Glyphicons Halflings';
+      src: url('bootstrap-3.1.1/fonts/glyphicons-halflings-regular.eot');
+      src: url('bootstrap-3.1.1/fonts/glyphicons-halflings-regular.eot?#iefix') 
+      format('embedded-opentype'), 
+      url('bootstrap-3.1.1/fonts/glyphicons-halflings-regular.woff') 
+      format('woff'), url('bootstrap-3.1.1/fonts/glyphicons-halflings-regular.ttf') 
+      format('truetype'), 
+      url('bootstrap-3.1.1/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') 
+      format('svg');
+    }
+    
         body { margin: 0; }
     
         #wrapper { width: 960px; margin: 0 auto; min-height: 600px; }
         
-        #header { background: orange;  }
+        #header {   }
         
         #content { border-left: 1px solid #ddd; width: 750px; float: left; padding-left: 8px; margin-bottom: 20px;}
         
@@ -40,8 +52,25 @@
     
 </head>
 <body>
+
+
+
     <form id="form1" runat="server">
     <div id="wrapper">
+    
+    
+    
+<ul class="nav nav-tabs">
+  <li class=""> <%--active--%>
+    <a href="./">Home <span class="icon-home"></span></a>
+  </li>
+  <li><a href="#"> User </a></li>
+</ul>
+
+
+
+    
+    
         <div id="header">
             <h2>คอมมิวนีตี้</h2>
             <p>....</p>

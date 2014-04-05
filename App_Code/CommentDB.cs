@@ -59,6 +59,8 @@ public class CommentDB
         DB db = new DB();
         //comment = new Comment(tid, text, date, uid);
 
+        if (text.Trim() == "") return;
+
         string cmd = string.Format(@"insert into comment 
 (topic_id, comment_text, comment_date, user_id )
 values( '{0}','{1}','{2}' ,{3}) "
